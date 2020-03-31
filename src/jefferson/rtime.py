@@ -4,11 +4,21 @@ def decompress(data_in, destlen):
     outpos = 0
     pos = 0
     while outpos < destlen:
-        value = ord(data_in[pos])
+        # Python2: 
+        # value = ord(data_in[pos])
+
+        # Python3:
+        value = data_in[pos]
+
         pos += 1
         cpage_out[outpos] = value
         outpos += 1
-        repeat = ord(data_in[pos])
+
+        # Python2: 
+        # repeat = ord(data_in[pos])
+
+        # Python3:
+        repeat = data_in[pos]
         pos += 1
 
         backoffs = positions[value]
@@ -23,4 +33,5 @@ def decompress(data_in, destlen):
             else:
                 cpage_out[outpos:outpos + repeat] = cpage_out[backoffs:backoffs + repeat]
                 outpos += repeat
-    return str(cpage_out)
+
+    return cpage_out
