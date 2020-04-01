@@ -1,6 +1,10 @@
 # jefferson
 JFFS2 filesystem extraction tool
 
+## Branches
+- version-fix : this version should work with Binwalk using python 3.
+- master : this is the old code that is python 2 and was giving me fits when used with Binwalk and python 3.
+
 Installation
 ============
 ```bash
